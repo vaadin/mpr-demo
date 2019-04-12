@@ -23,10 +23,15 @@ import com.vaadin.addon.charts.model.XAxis;
 import com.vaadin.addon.spreadsheet.Spreadsheet;
 import com.vaadin.addon.spreadsheet.Spreadsheet.CellValueChangeEvent;
 import com.vaadin.addon.spreadsheet.Spreadsheet.CellValueChangeListener;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.Route;
+import com.vaadin.mpr.LegacyWrapper;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.VerticalLayout;
 
+@Route(value = SpreadsheetView.ROUTE, layout = MyUI.class)
 public class SpreadsheetView extends VerticalLayout {
+    public static final String ROUTE = "spreadsheet";
+    public static final String TITLE = "Spreadsheet";    
 
     private HorizontalLayout chartsLayout;
     private Collection<Chart> charts;
@@ -39,9 +44,13 @@ public class SpreadsheetView extends VerticalLayout {
 
         initSpreadsheet();
         initCharts();
-        addComponents(chartsLayout, spreadsheet);
-        setExpandRatio(chartsLayout, 1.0f);
-        setExpandRatio(spreadsheet, 1.0f);
+        LegacyWrapper spreadsheetWrapper = new LegacyWrapper(spreadsheet);
+        spreadsheetWrapper.setHeight("50%");
+        spreadsheetWrapper.setWidth("100%");
+        LegacyWrapper chartsWrapper = new LegacyWrapper(chartsLayout);
+        chartsWrapper.setHeight("50%");
+        chartsWrapper.setWidth("100%");
+        add(chartsWrapper, spreadsheetWrapper);
     }
 
     private void initCharts() {
@@ -117,7 +126,8 @@ public class SpreadsheetView extends VerticalLayout {
         spreadsheet.createCell(5, 0, "Brand 3");
         spreadsheet.createCell(5, 1, 3d);
         spreadsheet.setColumnWidth(0, 130);
-
+        spreadsheet.setSizeFull();
+        
         spreadsheet.refreshCells(cell);
     }
 
