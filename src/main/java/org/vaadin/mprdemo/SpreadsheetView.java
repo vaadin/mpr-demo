@@ -10,23 +10,23 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CellType;
 
-import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.ChartType;
-import com.vaadin.addon.charts.model.Configuration;
-import com.vaadin.addon.charts.model.DataLabels;
-import com.vaadin.addon.charts.model.DataSeries;
-import com.vaadin.addon.charts.model.DataSeriesItem;
-import com.vaadin.addon.charts.model.Legend;
-import com.vaadin.addon.charts.model.PlotOptionsColumn;
-import com.vaadin.addon.charts.model.PlotOptionsPie;
-import com.vaadin.addon.charts.model.XAxis;
 import com.vaadin.addon.spreadsheet.Spreadsheet;
 import com.vaadin.addon.spreadsheet.Spreadsheet.CellValueChangeEvent;
 import com.vaadin.addon.spreadsheet.Spreadsheet.CellValueChangeListener;
+import com.vaadin.flow.component.charts.Chart;
+import com.vaadin.flow.component.charts.model.ChartType;
+import com.vaadin.flow.component.charts.model.Configuration;
+import com.vaadin.flow.component.charts.model.DataLabels;
+import com.vaadin.flow.component.charts.model.DataSeries;
+import com.vaadin.flow.component.charts.model.DataSeriesItem;
+import com.vaadin.flow.component.charts.model.Legend;
+import com.vaadin.flow.component.charts.model.PlotOptionsColumn;
+import com.vaadin.flow.component.charts.model.PlotOptionsPie;
+import com.vaadin.flow.component.charts.model.XAxis;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.mpr.LegacyWrapper;
-import com.vaadin.ui.HorizontalLayout;
 
 @Route(value = SpreadsheetView.ROUTE, layout = MyUI.class)
 public class SpreadsheetView extends VerticalLayout {
@@ -47,10 +47,8 @@ public class SpreadsheetView extends VerticalLayout {
         LegacyWrapper spreadsheetWrapper = new LegacyWrapper(spreadsheet);
         spreadsheetWrapper.setHeight("50%");
         spreadsheetWrapper.setWidth("100%");
-        LegacyWrapper chartsWrapper = new LegacyWrapper(chartsLayout);
-        chartsWrapper.setHeight("50%");
-        chartsWrapper.setWidth("100%");
-        add(chartsWrapper, spreadsheetWrapper);
+        chartsLayout.setHeight("50%");
+        add(chartsLayout, spreadsheetWrapper);
     }
 
     private void initCharts() {
@@ -61,8 +59,8 @@ public class SpreadsheetView extends VerticalLayout {
         charts.add(createPieChart());
         charts.add(createColumnChart());
         for (Chart chart : charts) {
-            chartsLayout.addComponents(chart);
-            chartsLayout.setExpandRatio(chart, 1.0f);
+        	chart.setWidth("50%");
+            chartsLayout.add(chart);
         }
         updateChartsData();
     }

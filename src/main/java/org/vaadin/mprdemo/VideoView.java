@@ -18,7 +18,7 @@ public class VideoView extends VerticalLayout {
 		setAlignItems(Alignment.CENTER);
 		final GwtVideo video = new GwtVideo("A Video");
 		video.setPreload(PreloadMode.NONE);
-		video.setWidth("800px");
+//		video.setWidth("800px");
 		LegacyWrapper videoWrapper = new LegacyWrapper(video);
         add(videoWrapper);
        	ClassResource videoResource = new ClassResource("/big_buck_bunny.mp4");
