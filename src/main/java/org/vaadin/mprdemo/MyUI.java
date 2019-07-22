@@ -22,7 +22,9 @@ public class MyUI extends AppLayout implements RouterLayout {
         img.setHeight("35px");
         setBranding(img);
 
-        menu.addMenuItems(new AppLayoutMenuItem(SpreadsheetView.TITLE, SpreadsheetView.ROUTE),
+        menu.addMenuItems(
+        		new AppLayoutMenuItem(SpreadsheetView.TITLE, SpreadsheetView.ROUTE),
+        		new AppLayoutMenuItem(TreeView.TITLE, TreeView.ROUTE),
                 new AppLayoutMenuItem(VideoView.TITLE, VideoView.ROUTE));
 
         childWrapper.setSizeFull();
