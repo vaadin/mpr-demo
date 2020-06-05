@@ -21,7 +21,7 @@ public class TreeView extends VerticalLayout {
 
 	public TreeView() {
 		setAlignItems(Alignment.CENTER);
-		FileSelect fileSelect = new FileSelect(new File("C:/"));
+		FileSelect fileSelect = new FileSelect(new File(System.getProperty("user.dir")));
     	fileSelect.addValueChangeListener(event -> {
         	File file = fileSelect.getValue();
     		Date date = new Date(file.lastModified());
