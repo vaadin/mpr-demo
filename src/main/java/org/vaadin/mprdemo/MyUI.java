@@ -14,7 +14,6 @@ import com.vaadin.mpr.core.MprTheme;
 
 @Route("")
 @MprTheme("mytheme")
-@CssImport("custom.css")
 public class MyUI extends AppLayout implements RouterLayout {
 
 	private FlexLayout childWrapper = new FlexLayout();
