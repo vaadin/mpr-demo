@@ -14,7 +14,8 @@
 	</prerequisites>
 
 	<properties>
-		<vaadin.version>14.2.0</vaadin.version>
+		<vaadin.version>14.4.1</vaadin.version>
+		<flow.version>2.4.0</flow.version>
 		<vaadin8.version>8.7.2</vaadin8.version>
 		<vaadin.plugin.version>8.7.2</vaadin.plugin.version>
 		<jetty.plugin.version>9.4.14.v20181114</jetty.plugin.version>
@@ -102,7 +103,19 @@
 	</dependencies>
 
 	<build>
-		<plugins>
+    	<plugins>
+        	 <plugin>
+            	 <groupId>com.vaadin</groupId>
+	             <artifactId>flow-maven-plugin</artifactId>
+    	         <version>${flow.version}</version>
+        	     <executions>
+            	     <execution>
+                	     <goals>
+                    	     <goal>prepare-frontend</goal>
+	                     </goals>
+    	             </execution>
+        	     </executions>
+	         </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
