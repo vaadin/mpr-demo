@@ -1,25 +1,34 @@
 package org.vaadin.mprdemo;
 
+import com.vaadin.annotations.Push;
 import com.vaadin.flow.component.HasElement;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
+import com.vaadin.mpr.core.LegacyUI;
 import com.vaadin.mpr.core.MprTheme;
+import com.vaadin.ui.Notification;
 
+@Push
 @Route("")
 @MprTheme("mytheme")
 @CssImport("custom.css")
+@LegacyUI(OldUI.class)
 public class MyUI extends AppLayout implements RouterLayout {
 
-	private FlexLayout childWrapper = new FlexLayout();
+	private static final String VAADIN_THEMES = "/VAADIN/themes/";
 
-    public MyUI () {
+	private FlexLayout childWrapper = new FlexLayout();
+	private String css;
+
+    @SuppressWarnings("deprecation")
+	public MyUI () {
         DrawerToggle toggle = new DrawerToggle();
         addToNavbar(toggle);
         VerticalLayout layout = new VerticalLayout();
@@ -27,12 +36,23 @@ public class MyUI extends AppLayout implements RouterLayout {
         layout.add(new RouterLink(TreeView.TITLE, TreeView.class));
         layout.add(new RouterLink(VideoView.TITLE, VideoView.class));
         addToDrawer(layout);
+
         childWrapper.setSizeFull();
         setContent(childWrapper);
+        		
+		OldUI ui = (OldUI) OldUI.getCurrent();
+		Notification.show(ui.getHello());
+		ui.getPage().addUriFragmentChangedListener(event -> {
+			String uriFragment = event.getUriFragment().substring(1);
+			System.out.println("URI:"+uriFragment);
+			UI.getCurrent().navigate(uriFragment);
+		});
     }
 
 	@Override
 	public void showRouterLayoutContent(HasElement content) {
+		childWrapper.removeAll();
 		childWrapper.getElement().appendChild(content.getElement());		
-	}    
+	}
+
 }

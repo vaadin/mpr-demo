@@ -14,10 +14,10 @@
 	</prerequisites>
 
 	<properties>
-		<vaadin.version>14.4.1</vaadin.version>
-		<flow.version>2.4.0</flow.version>
-		<vaadin8.version>8.7.2</vaadin8.version>
-		<vaadin.plugin.version>8.7.2</vaadin.plugin.version>
+		<vaadin.version>14.5.1</vaadin.version>
+		<flow.version>2.5.1</flow.version>
+		<vaadin8.version>8.12.4</vaadin8.version>
+		<vaadin.plugin.version>8.12.4</vaadin.plugin.version>
 		<jetty.plugin.version>9.4.14.v20181114</jetty.plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -214,6 +214,38 @@
 				</pluginRepository>
 			</pluginRepositories>
 		</profile>
-	</profiles>
 
+		<profile>
+		    <!-- Production mode is activated using -Pproduction -->
+		    <id>production</id>
+		    <properties>
+		        <vaadin.productionMode>true</vaadin.productionMode>
+		    </properties>
+
+		    <dependencies>
+        		<dependency>
+		            <groupId>com.vaadin</groupId>
+        		    <artifactId>flow-server-production-mode</artifactId>
+		        </dependency>
+		    </dependencies>
+
+		    <build>
+        		<plugins>
+		            <plugin>
+        		        <groupId>com.vaadin</groupId>
+                		<artifactId>flow-maven-plugin</artifactId>
+		                <version>${flow.version}</version>
+        		        <executions>
+                		    <execution>
+                        		<goals>
+		                            <goal>build-frontend</goal>
+        		                </goals>
+                		        <phase>compile</phase>
+		                    </execution>
+        		        </executions>
+		            </plugin>
+        		</plugins>
+		    </build>
+		</profile>
+	</profiles>
 </project>
