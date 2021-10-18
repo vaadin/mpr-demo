@@ -5,7 +5,10 @@ import com.vaadin.flow.component.HasElement;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -35,6 +38,15 @@ public class MyUI extends AppLayout implements RouterLayout {
         layout.add(new RouterLink(SpreadsheetView.TITLE, SpreadsheetView.class));
         layout.add(new RouterLink(TreeView.TITLE, TreeView.class));
         layout.add(new RouterLink(VideoView.TITLE, VideoView.class));
+        layout.add(new RouterLink(LegacyRoute.TITLE, LegacyRoute.class));
+        Icon button = VaadinIcon.USER.create();
+        button.addClickListener(event -> {
+        	getUI().ifPresent(ui -> {
+        		ui.getSession().getSession().invalidate();        		
+        		ui.getPage().setLocation("http://localhost:8080/");
+        	});
+        });
+        layout.add(button);
         addToDrawer(layout);
 
         childWrapper.setSizeFull();

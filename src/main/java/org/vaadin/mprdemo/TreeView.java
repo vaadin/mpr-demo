@@ -48,7 +48,9 @@ public class TreeView extends VerticalLayout implements HasUrlParameter<String>,
 
 	@Override
 	public void afterNavigation(AfterNavigationEvent event) {
-		Notification.show(param);		
+		if (param != null) {
+			Notification.show(param);		
+		}
 	}
 	
 }
