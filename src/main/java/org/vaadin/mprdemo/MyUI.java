@@ -13,6 +13,7 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
@@ -26,7 +27,7 @@ import com.vaadin.server.VaadinSession;
 @MprTheme("mytheme")
 @CssImport("custom.css")
 @LegacyUI(OldUI.class)
-public class MyUI extends AppLayout implements RouterLayout {
+public class MyUI extends AppLayout implements RouterLayout, AppShellConfigurator {
 
 	private static final String VAADIN_THEMES = "/VAADIN/themes/";
 
@@ -58,7 +59,7 @@ public class MyUI extends AppLayout implements RouterLayout {
 		childWrapper.setSizeFull();
 		setContent(childWrapper);
 
-		OldUI ui = (OldUI) OldUI.getCurrent();
+		OldUI ui = (OldUI) com.vaadin.ui.UI.getCurrent();
 		Notification.show(ui.getHello());
 		ui.getPage().addUriFragmentChangedListener(event -> {
 			String uriFragment = event.getUriFragment().substring(1);
