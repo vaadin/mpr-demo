@@ -1,0 +1,15 @@
+/target/
+src/main/webapp/VAADIN/themes/mytheme/styles.css
+frontend/generated
+.settings/
+frontend/index.html
+node_modules/
+pnpm-lock.yaml
+tsconfig.json
+types.d.ts
+vite.config.ts
+vite.generated.ts
+.classpath
+.npmrc
+.pnpmfile.cjs
+.project

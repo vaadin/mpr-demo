@@ -14,12 +14,12 @@
     </prerequisites>
 
     <properties>
-        <vaadin.version>23.0.0</vaadin.version>
-        <vaadin8.version>8.14.3</vaadin8.version>
-        <flow.version>${vaadin.version}</flow.version>
-        <mpr.version>6.0.0</mpr.version>
+        <vaadin.version>23.2.8</vaadin.version>
+        <vaadin8.version>8.18.0</vaadin8.version>
+        <flow.version>23.2.6</flow.version>
+        <mpr.version>6.0.3</mpr.version>
         <vaadin.plugin.version>${vaadin8.version}</vaadin.plugin.version>
-        <jetty.plugin.version>9.4.14.v20181114</jetty.plugin.version>
+        <jetty.plugin.version>10.0.1</jetty.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -128,6 +128,7 @@
     </dependencies>
 
     <build>
+        <defaultGoal>jetty:run</defaultGoal>
         <plugins>
              <plugin>
                  <groupId>com.vaadin</groupId>
