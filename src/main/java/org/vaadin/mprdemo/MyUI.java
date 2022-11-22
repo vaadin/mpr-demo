@@ -6,7 +6,6 @@ import com.vaadin.flow.component.HasElement;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
@@ -17,7 +16,6 @@ import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
-
 import com.vaadin.mpr.core.LegacyUI;
 import com.vaadin.mpr.core.MprTheme;
 import com.vaadin.server.VaadinSession;
@@ -58,14 +56,18 @@ public class MyUI extends AppLayout implements RouterLayout, AppShellConfigurato
 
 		childWrapper.setSizeFull();
 		setContent(childWrapper);
-
 		OldUI ui = (OldUI) com.vaadin.ui.UI.getCurrent();
-		Notification.show(ui.getHello());
-		ui.getPage().addUriFragmentChangedListener(event -> {
-			String uriFragment = event.getUriFragment().substring(1);
-			System.out.println("URI:" + uriFragment);
-			UI.getCurrent().navigate(uriFragment);
-		});
+		if (ui != null) {
+			Notification.show(ui.getHello());
+			ui.getPage().addPopStateListener(e -> {
+				String uriFragment = ui.getPage().getUriFragment();
+				if (uriFragment != null) {
+					uriFragment = uriFragment.substring(1);
+					System.out.println("URI:" + uriFragment);
+					UI.getCurrent().navigate(uriFragment);
+				}
+			});
+		}
 	}
 
 	@Override
