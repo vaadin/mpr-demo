@@ -50,9 +50,6 @@ public class MyUI extends AppLayout implements RouterLayout, AppShellConfigurato
 		});
 		layout.add(button);
 		addToDrawer(layout);
-		if (VaadinSession.getCurrent().getService().getDeploymentConfiguration().isProductionMode()) {
-			Notification.show("Vaadin 8 runs in prod mode");
-		}
 
 		childWrapper.setSizeFull();
 		setContent(childWrapper);
@@ -75,6 +72,9 @@ public class MyUI extends AppLayout implements RouterLayout, AppShellConfigurato
 		if (event.getSession().getService().getDeploymentConfiguration().isProductionMode()) {
 			event.getUI().getPage().executeJs("window.vaadin.debug=false;");
 		}
+		if (VaadinSession.getCurrent().getService().getDeploymentConfiguration().isProductionMode()) {
+			Notification.show("Vaadin 8 runs in prod mode");
+		}		
 	}
 
 	@Override
