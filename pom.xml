@@ -14,15 +14,15 @@
     </prerequisites>
 
     <properties>
-        <vaadin.version>23.2.8</vaadin.version>
+        <vaadin.version>24.0.0.alpha10</vaadin.version>
         <vaadin8.version>8.18.0</vaadin8.version>
-        <flow.version>23.2.6</flow.version>
-        <mpr.version>6.0.3</mpr.version>
+        <flow.version>24.0.0.beta1</flow.version>
+        <mpr.version>7.0.0.alpha3</mpr.version>
         <vaadin.plugin.version>${vaadin8.version}</vaadin.plugin.version>
-        <jetty.plugin.version>10.0.1</jetty.plugin.version>
+        <jetty.plugin.version>11.0.13</jetty.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <!-- If there are no local customizations, this can also be "fetch" or "cdn" -->
         <vaadin.widgetset.mode>local</vaadin.widgetset.mode>
     </properties>
@@ -66,9 +66,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
