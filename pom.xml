@@ -77,7 +77,7 @@
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-server</artifactId>
+            <artifactId>vaadin-server-mpr-jakarta</artifactId>
             <version>${vaadin8.version}</version>
         </dependency>
         <dependency>
