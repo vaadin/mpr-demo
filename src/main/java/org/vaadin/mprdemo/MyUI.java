@@ -1,6 +1,5 @@
 package org.vaadin.mprdemo;
 
-import com.vaadin.annotations.Push;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.HasElement;
 import com.vaadin.flow.component.UI;
@@ -12,20 +11,14 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
-import com.vaadin.mpr.core.LegacyUI;
-import com.vaadin.mpr.core.MprTheme;
 import com.vaadin.server.VaadinSession;
 
-@Push
 @Route("")
-@MprTheme("mytheme")
 @CssImport("custom.css")
-@LegacyUI(OldUI.class)
-public class MyUI extends AppLayout implements RouterLayout, AppShellConfigurator {
+public class MyUI extends AppLayout implements RouterLayout {
 
 	private static final String VAADIN_THEMES = "/VAADIN/themes/";
 
