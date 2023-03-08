@@ -22,9 +22,7 @@ import com.vaadin.server.VaadinSession;
 
 
 @Route("")
-
 @CssImport("custom.css")
-
 public class MyUI extends AppLayout implements RouterLayout {
 
 	private static final String VAADIN_THEMES = "/VAADIN/themes/";
