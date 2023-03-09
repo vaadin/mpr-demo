@@ -20,12 +20,10 @@ import com.vaadin.mpr.core.LegacyUI;
 import com.vaadin.mpr.core.MprTheme;
 import com.vaadin.server.VaadinSession;
 
-@Push
+
 @Route("")
-@MprTheme("mytheme")
 @CssImport("custom.css")
-@LegacyUI(OldUI.class)
-public class MyUI extends AppLayout implements RouterLayout, AppShellConfigurator {
+public class MyUI extends AppLayout implements RouterLayout {
 
 	private static final String VAADIN_THEMES = "/VAADIN/themes/";
 
