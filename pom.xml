@@ -39,7 +39,7 @@
         <repository>
             <id>vaadin-addons</id>
             <url>https://maven.vaadin.com/vaadin-addons</url>
-        </repository>        
+        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -84,6 +84,13 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-server</artifactId>
             <version>${vaadin8.version}</version>
+            <!--
+                 Provided scope assures that dependency is not in the final artifact.
+                 Though, it might be problematic during development, because IDEs could consider
+                 dependencies and fail to detect the correct class in debug.
+                 If so, please add 'exclusions' blocks as described in the documentation:
+                 https://vaadin.com/docs/latest/tools/mpr/introduction/1-maven-v8#exclude-incompatible-framework-8-dependency
+            -->
             <scope>provided</scope>
         </dependency>
         <dependency>
