@@ -17,7 +17,6 @@
         <vaadin.version>24.3.7</vaadin.version>
         <vaadin8.version>8.24.0</vaadin8.version>
         <flow.version>24.3.7</flow.version>
-        <mpr.version>7.0.9</mpr.version>
         <vaadin.plugin.version>${vaadin8.version}</vaadin.plugin.version>
         <jetty.plugin.version>11.0.13</jetty.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -104,15 +103,9 @@
             <version>${vaadin8.version}</version>
             <scope>provided</scope>
         </dependency>
-         <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>mpr-core</artifactId>
-            <version>${mpr.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>mpr-v8</artifactId>
-            <version>${mpr.version}</version>
         </dependency>
         <dependency>
                <groupId>org.vaadin</groupId>
