@@ -14,10 +14,10 @@
     </prerequisites>
 
     <properties>
-        <vaadin.version>24.2.5</vaadin.version>
-        <vaadin8.version>8.22.0</vaadin8.version>
-        <flow.version>24.3.0</flow.version>
-        <mpr.version>7.0.8</mpr.version>
+        <vaadin.version>24.3.7</vaadin.version>
+        <vaadin8.version>8.24.0</vaadin8.version>
+        <flow.version>24.3.7</flow.version>
+        <mpr.version>7.0.9</mpr.version>
         <vaadin.plugin.version>${vaadin8.version}</vaadin.plugin.version>
         <jetty.plugin.version>11.0.13</jetty.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
