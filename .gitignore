@@ -1,6 +1,6 @@
 /target/
 src/main/webapp/VAADIN/themes/mytheme/styles.css
-frontend/generated
+src/main/frontend/generated
 .settings/
 frontend/index.html
 node_modules/
