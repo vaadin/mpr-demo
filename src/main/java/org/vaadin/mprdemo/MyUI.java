@@ -67,12 +67,9 @@ public class MyUI extends AppLayout implements RouterLayout {
 
 	@Override
 	public void onAttach(AttachEvent event) {
-		if (event.getSession().getService().getDeploymentConfiguration().isProductionMode()) {
-			event.getUI().getPage().executeJs("window.vaadin.debug=false;");
-		}
 		if (VaadinSession.getCurrent().getService().getDeploymentConfiguration().isProductionMode()) {
 			Notification.show("Vaadin 8 runs in prod mode");
-		}		
+		}
 	}
 
 	@Override
