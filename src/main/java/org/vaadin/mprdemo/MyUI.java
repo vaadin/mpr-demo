@@ -1,5 +1,7 @@
 package org.vaadin.mprdemo;
 
+import com.vaadin.flow.server.auth.AnonymousAllowed;
+
 import com.vaadin.annotations.Push;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.HasElement;
@@ -23,6 +25,7 @@ import com.vaadin.server.VaadinSession;
 
 @Route("")
 @CssImport("custom.css")
+@AnonymousAllowed
 public class MyUI extends AppLayout implements RouterLayout {
 
 	private static final String VAADIN_THEMES = "/VAADIN/themes/";
